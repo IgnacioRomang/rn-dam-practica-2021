@@ -34,10 +34,26 @@ export const StoreComponent = props => {
   const initialState = {
     favorites,
     addFavorites: movie => setFavorites(prevState => [...prevState, movie]),
+    removeFavorite: movie => RemoveItemInFavorites(favorites.indexOf(movie),favorites),
+    existFavorite: movie => favorites.find(item => item.imdbID == movie.imdbID),
+    sizeFavorite: () => favorites.length(),
     toWatchList,
+    existInWatchList: movie => toWatchList.find(item => item.imdbID == movie.imdbID),
     addToWatchList: movie => setToWatchList(prevState => [...prevState, movie]),
+    removeToWatchList: movie => RemoveItemInWatchList(toWatchList.indexOf(movie),toWatchList),
+    sizeToWatchList: () => toWatchList.length()
   };
 
+  const RemoveItemInFavorites = (idx) => {
+    const temp = [...favorites];
+    temp.splice(idx, 1);
+    setFavorites(temp);
+  }
+  const RemoveItemInWatchList = (idx) => {
+    const temp = [...toWatchList];
+    temp.splice(idx, 1);
+    setToWatchList(temp);
+  }
   return <StoreContext.Provider value={initialState} {...props} />;
 };
 

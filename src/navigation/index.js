@@ -3,7 +3,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Icon} from '@ui-kitten/components';
 import NombreComponente from '../components/Componente';
-import {InnerHome, InnerHomeTwo} from './home/InnerHome';
+import {InnerHome, showFavorites,showToWatchList} from './home/InnerHome';
 import Discover from './discover/Dicover';
 import {Details} from './discover/Details';
 
@@ -12,8 +12,10 @@ const MainStack = createNativeStackNavigator();
 const HomeNavigator = () => {
   return (
     <MainStack.Navigator>
-      <MainStack.Screen name="Inner Home" component={InnerHome} />
-      <MainStack.Screen name="Inner Home 2" component={InnerHomeTwo} />
+      <MainStack.Screen name="Select" component={InnerHome} />
+      <MainStack.Screen name="Favorites List" component={showFavorites} />
+      <MainStack.Screen name="To Watch List" component={showToWatchList} />
+      <DiscoverStack.Screen name="Details" component={Details} />
     </MainStack.Navigator>
   );
 };

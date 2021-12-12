@@ -1,38 +1,48 @@
-import React, {useContext} from 'react';
+import React, {useContext,useEffect,useState} from 'react';
 import {Button, Layout, Text} from '@ui-kitten/components';
 import {useNavigation} from '@react-navigation/native';
 import {StoreContext} from '../../store';
+import {FlatList} from 'react-native';
+import SimpleMovieCard from '../../components/SimpleMovieCard';
 
 const InnerHome = () => {
   const navigation = useNavigation();
   const store = useContext(StoreContext);
-
   return (
     <Layout level="2">
-      <Text>Soy el componente InnerHome, estoy dentro del componente Home</Text>
-
-      <Text>Lista de favoritos: {JSON.stringify(store.favorites)}</Text>
-
-      <Button onPress={() => navigation.navigate('Inner Home 2')}>
-        Ir a otro componente Ir a Inner 2
-      </Button>
+        <Button onPress={() => navigation.navigate('Favorites List')}>
+          Show favorites list
+        </Button>
+        <Button onPress={() => navigation.navigate('To Watch List')}>
+          Show to Wacth list
+        </Button>
     </Layout>
   );
 };
 
-const InnerHomeTwo = () => {
-  const navigation = useNavigation();
-
-  return (
+const showFavorites = () =>{
+  const store = useContext(StoreContext);
+  return(
     <Layout level="2">
-      <Text>
-        Soy el componente InnerHome 2, estoy dentro del componente Home
-      </Text>
-      <Button onPress={() => navigation.navigate('Profile')}>
-        Ir a perfil
-      </Button>
+      <FlatList
+          data={store.favorites}
+          renderItem={({item}) => <SimpleMovieCard movie={item} />}
+        />
     </Layout>
   );
-};
+}
 
-export {InnerHome, InnerHomeTwo};
+const showToWatchList =()=>{
+  const store = useContext(StoreContext);
+  return(
+    <Layout style={{flex: 1}} level="2">
+    <Layout level="2">
+        <FlatList
+          data={store.toWatchList}
+          renderItem={({item}) => <SimpleMovieCard movie={item} />}
+        />
+    </Layout>
+  </Layout>
+  );
+}
+export {InnerHome,showFavorites,showToWatchList};

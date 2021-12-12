@@ -7,7 +7,6 @@
  */
 
 import React from 'react';
-import type {Node} from 'react';
 import * as eva from '@eva-design/eva';
 import {ApplicationProvider, IconRegistry, Text} from '@ui-kitten/components';
 import {EvaIconsPack} from '@ui-kitten/eva-icons';
@@ -18,7 +17,7 @@ import {StoreComponent} from './src/store';
 
 const styles = StyleSheet.create({});
 
-const App: () => Node = () => {
+const App = () => {
   return (
     <>
       <IconRegistry icons={EvaIconsPack} />
