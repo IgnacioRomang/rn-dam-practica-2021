@@ -36,12 +36,10 @@ export const StoreComponent = props => {
     addFavorites: movie => setFavorites(prevState => [...prevState, movie]),
     removeFavorite: movie => RemoveItemInFavorites(favorites.indexOf(movie),favorites),
     existFavorite: movie => favorites.find(item => item.imdbID == movie.imdbID),
-    sizeFavorite: () => favorites.length(),
     toWatchList,
     existInWatchList: movie => toWatchList.find(item => item.imdbID == movie.imdbID),
     addToWatchList: movie => setToWatchList(prevState => [...prevState, movie]),
     removeToWatchList: movie => RemoveItemInWatchList(toWatchList.indexOf(movie),toWatchList),
-    sizeToWatchList: () => toWatchList.length()
   };
 
   const RemoveItemInFavorites = (idx) => {
