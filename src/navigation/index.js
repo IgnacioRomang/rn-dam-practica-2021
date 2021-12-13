@@ -6,6 +6,7 @@ import NombreComponente from '../components/Componente';
 import {InnerHome, showFavorites,showToWatchList} from './home/InnerHome';
 import Discover from './discover/Dicover';
 import {Details} from './discover/Details';
+import {Profile} from './profile/Profile';
 
 const MainStack = createNativeStackNavigator();
 
@@ -84,7 +85,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="Profile"
-        component={NombreComponente}
+        component={Profile}
         initialParams={{simpleMock: true}}
       />
     </Tab.Navigator>

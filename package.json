@@ -10,6 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@bigheads/core": "^0.3.3",
     "@eva-design/eva": "^2.1.1",
     "@react-native-async-storage/async-storage": "^1.15.14",
     "@react-native-masked-view/masked-view": "^0.2.6",
@@ -24,11 +25,15 @@
     "lottie-react-native": "^5.0.1",
     "react": "17.0.2",
     "react-native": "0.66.3",
+    "react-native-elements": "^3.4.2",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-scalable-image": "^1.1.0",
     "react-native-screens": "^3.9.0",
-    "react-native-svg": "^12.1.1"
+    "react-native-sha256": "^1.4.7",
+    "react-native-svg": "^12.1.1",
+    "react-native-user-avatar": "^1.0.7",
+    "react-native-vector-icons": "^9.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
